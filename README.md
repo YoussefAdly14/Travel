@@ -1,6 +1,6 @@
 # Travelling Website (CSEN503)
 
-A simple Node.js + Express web app with EJS views for exploring travel destinations, user authentication, searching destinations, and managing a personal "Want To Go" list. MongoDB stores user accounts and lists.
+Hi! I am Youssef and this is one of the projects I developed for university. This project was required in my networks course (CSEN503). It is a simple Node.js + Express web app with EJS views for exploring travel destinations, user authentication, searching destinations, and managing a personal "Want To Go" list. MongoDB stores user accounts and lists.
 
 ## Features
 - Authentication: register, login, logout (session-based)
@@ -46,9 +46,9 @@ Run commands from the `backend` folder (the server lives there):
 ```powershell
 cd "backend"
 npm install
-npm run dev   # starts with nodemon
+npm run dev 
 # or
-npm start     # plain node
+npm start     
 ```
 
 If you accidentally run from the repo root and see "missing script: dev", switch to `backend/` as above.
@@ -58,17 +58,17 @@ App will be available at:
 - Health check: http://localhost:4000/health
 
 ## Shared Database Access
-For collaborators to run the app without local DB setup, provide a MongoDB connection string. I will insert the actual values once you confirm them.
-
+For collaborators to run the app without local DB setup, provide a MongoDB connection string from atlas.
 ```
 MONGO_URI=mongodb+srv://<YOUR_USER>:<YOUR_PASSWORD>@<YOUR_CLUSTER>/<YOUR_DB>?retryWrites=true&w=majority
 ```
 
 Please share:
-- DB user: <YOUR_USER>
-- DB password: <YOUR_PASSWORD>
-- Cluster host: <YOUR_CLUSTER> (e.g., cluster0.abcde.mongodb.net)
-- Database name: <YOUR_DB> (e.g., myDB)
+- DB user: <YoussefAdlyy>
+- DB password: <password> (Won't include my actual password)
+- Cluster host: <Cluster0> 
+- Database name: <myDB> 
+- Collection name: <myCollection> 
 
 Security note: Committing real credentials is risky. Prefer a read-only user or temporary credentials. If you still want them embedded, I can place the exact string here per your request.
 
@@ -93,8 +93,3 @@ Security note: Committing real credentials is risky. Prefer a read-only user or 
 - Utilities (no auth)
   - GET `/health` → `{ ok: true, dbReady: boolean }`
   - GET `/dbtest` → attempts simple collection operations (requires DB)
-
-## Development Notes
-- Sessions: Pages are protected globally except `/login`, `/register`, `/logout`, static assets, and `/` redirect logic.
-- DB Connection: Established once on startup and stored in `app.locals.db`. Server still starts if DB connect fails; check `/health`.
-- Templates: The app passes `username` where relevant; update views accordingly if you add pages.
